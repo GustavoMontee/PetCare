@@ -5,12 +5,28 @@
       "PackagePath": "staticwebassets\\PetCare.bundle.scp.css"
     },
     {
+      "Id": "D:\\Documentos\\PetCare\\PetCare\\wwwroot\\css\\petcare.css",
+      "PackagePath": "staticwebassets\\css\\petcare.css"
+    },
+    {
       "Id": "D:\\Documentos\\PetCare\\PetCare\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
       "Id": "D:\\Documentos\\PetCare\\PetCare\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\Documentos\\PetCare\\PetCare\\wwwroot\\images\\petcare-branco.png",
+      "PackagePath": "staticwebassets\\images\\petcare-branco.png"
+    },
+    {
+      "Id": "D:\\Documentos\\PetCare\\PetCare\\wwwroot\\images\\petcare-com-fundo.png",
+      "PackagePath": "staticwebassets\\images\\petcare-com-fundo.png"
+    },
+    {
+      "Id": "D:\\Documentos\\PetCare\\PetCare\\wwwroot\\images\\petcare.png",
+      "PackagePath": "staticwebassets\\images\\petcare.png"
     },
     {
       "Id": "D:\\Documentos\\PetCare\\PetCare\\wwwroot\\js\\site.js",

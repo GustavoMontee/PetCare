@@ -13,8 +13,15 @@ public class HomeController : Controller
         _logger = logger;
     }
 
+    
+
     public IActionResult Index()
     {
+        if (HttpContext.Session.GetString("UsuarioLogado") == null)
+        {
+            return RedirectToAction("Index", "Login");
+        }
+
         return View();
     }
 

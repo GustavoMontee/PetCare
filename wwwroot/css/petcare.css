@@ -1,0 +1,58 @@
+/* Fundo geral */
+body {
+    background-color: #f5f6f8;
+}
+
+/* Navbar principal */
+.navbar-petcare {
+    background-color: #1f6fb2;
+}
+
+/* Nome do sistema */
+.navbar-brand {
+    font-weight: bold;
+    color: white !important;
+}
+
+/* Links do menu */
+.navbar-petcare .nav-link {
+    color: white !important;
+    font-weight: 500;
+}
+
+.navbar-petcare .nav-link:hover {
+    color: #ffd9c2 !important;
+}
+
+/* Botão sair */
+.btn-logout {
+    background-color: #ff6a00;
+    color: white;
+    border: none;
+}
+
+.btn-logout:hover {
+    background-color: #e85d00;
+}
+
+/* Nome do usuário */
+.usuario-logado {
+    color: white;
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+.btn-user{
+    background-color: transparent;
+    color: white !important;
+    border: none;
+    font-weight: 500;
+}
+
+.btn-user:hover{
+    color: #ffd9c2 !important;
+}
+
+.btn-user:focus{
+    box-shadow: none;
+}
