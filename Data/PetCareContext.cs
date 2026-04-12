@@ -13,5 +13,7 @@ namespace PetCare.Data
         public DbSet<Cliente> Clientes { get; set; }
 
         public DbSet<UsuarioSistema> UsuariosSistema { get; set; }
+
+        public DbSet<Pet> Pets { get; set; }
     }
 }

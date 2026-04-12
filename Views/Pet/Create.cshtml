@@ -1,0 +1,47 @@
+@model PetCare.Models.Pet
+
+<h2>Novo Pet</h2>
+
+<form asp-action="Create">
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="form-group">
+        <label>Nome</label>
+        <input asp-for="Nome" class="form-control" />
+        <span asp-validation-for="Nome" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Espécie</label>
+        <input asp-for="Especie" class="form-control" />
+        <span asp-validation-for="Especie" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Raça</label>
+        <input asp-for="Raca" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Idade</label>
+        <input asp-for="Idade" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Cliente</label>
+        <select asp-for="ClienteId" asp-items="ViewBag.Clientes" class="form-control">
+            <option value="">-- Selecione um cliente --</option>
+        </select>
+        <span asp-validation-for="ClienteId" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success mt-3">Salvar</button>
+
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

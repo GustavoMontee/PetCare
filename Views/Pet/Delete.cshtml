@@ -1,0 +1,15 @@
+@model Pet
+
+<h2>Excluir Pet</h2>
+
+<div>
+    <h4>Tem certeza que deseja excluir?</h4>
+    <p><strong>@Model.Nome</strong></p>
+    <p>@Model.Cliente?.Nome</p>
+</div>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Excluir</button>
+    <a asp-action="Index">Cancelar</a>
+</form>

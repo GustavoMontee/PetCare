@@ -14,47 +14,55 @@ namespace PetCare.Controllers
             _context = context;
         }
 
-        private bool UsuarioNaoLogado()
+        //Verifica se está logado
+        private bool UsuarioLogado()
         {
-            return HttpContext.Session.GetString("UsuarioLogado") == null;
+            return HttpContext.Session.GetString("UsuarioLogado") != null;
         }
 
+        // LISTAGEM
         public IActionResult Index()
         {
-            if (UsuarioNaoLogado())
+            if (!UsuarioLogado())
                 return RedirectToAction("Index", "Login");
 
             var usuarios = _context.UsuariosSistema.ToList();
             return View(usuarios);
         }
 
+        // CREATE (GET)
         public IActionResult Create()
         {
-            if (UsuarioNaoLogado())
+            if (!UsuarioLogado())
                 return RedirectToAction("Index", "Login");
 
             return View();
         }
 
+        // CREATE (POST)
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Create(UsuarioSistema usuario)
         {
-            if (UsuarioNaoLogado())
+            if (!UsuarioLogado())
                 return RedirectToAction("Index", "Login");
 
             if (ModelState.IsValid)
             {
                 _context.UsuariosSistema.Add(usuario);
                 _context.SaveChanges();
-
                 return RedirectToAction(nameof(Index));
             }
 
             return View(usuario);
         }
 
+        // EDIT (GET)
         public IActionResult Edit(int id)
         {
+            if (!UsuarioLogado())
+                return RedirectToAction("Index", "Login");
+
             var usuario = _context.UsuariosSistema.Find(id);
 
             if (usuario == null)
@@ -63,22 +71,30 @@ namespace PetCare.Controllers
             return View(usuario);
         }
 
+        // EDIT (POST)
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Edit(UsuarioSistema usuario)
         {
+            if (!UsuarioLogado())
+                return RedirectToAction("Index", "Login");
+
             if (ModelState.IsValid)
             {
                 _context.UsuariosSistema.Update(usuario);
                 _context.SaveChanges();
-
                 return RedirectToAction(nameof(Index));
             }
 
             return View(usuario);
         }
 
+        // DELETE
         public IActionResult Delete(int id)
         {
+            if (!UsuarioLogado())
+                return RedirectToAction("Index", "Login");
+
             var usuario = _context.UsuariosSistema.Find(id);
 
             if (usuario == null)
