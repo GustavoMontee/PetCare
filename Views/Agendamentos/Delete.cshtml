@@ -1,0 +1,67 @@
+@model PetCare.Models.Agendamento
+
+@{
+    ViewData["Title"] = "Excluir Agendamento";
+}
+
+<h1>Excluir Agendamento</h1>
+
+<h3>Deseja realmente excluir este agendamento?</h3>
+
+<hr />
+
+<dl class="row">
+
+    <dt class="col-sm-3">
+        Cliente
+    </dt>
+
+    <dd class="col-sm-9">
+        @Model.Cliente?.Nome
+    </dd>
+
+    <dt class="col-sm-3">
+        Pet
+    </dt>
+
+    <dd class="col-sm-9">
+        @Model.Pet?.Nome
+    </dd>
+
+    <dt class="col-sm-3">
+        Serviço
+    </dt>
+
+    <dd class="col-sm-9">
+        @Model.Servico?.Nome
+    </dd>
+
+    <dt class="col-sm-3">
+        Data/Hora
+    </dt>
+
+    <dd class="col-sm-9">
+        @Model.DataHora.ToString("dd/MM/yyyy HH:mm")
+    </dd>
+
+</dl>
+
+<form asp-action="Delete">
+
+    <input type="hidden" asp-for="Id" />
+
+    <button type="submit"
+            class="btn btn-danger">
+
+        Excluir
+
+    </button>
+
+    <a asp-action="Index"
+       class="btn btn-secondary">
+
+        Voltar
+
+    </a>
+
+</form>

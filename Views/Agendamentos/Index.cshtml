@@ -1,0 +1,124 @@
+@model IEnumerable<PetCare.Models.Agendamento>
+
+@{
+    ViewData["Title"] = "Agendamentos";
+}
+
+<h1>Agendamentos</h1>
+
+<p>
+    <a asp-action="Create"
+       class="btn btn-primary">
+        Novo Agendamento
+    </a>
+</p>
+
+<table class="table table-striped">
+
+    <thead>
+
+        <tr>
+
+            <th>Cliente</th>
+
+            <th>Pet</th>
+
+            <th>Serviço</th>
+
+            <th>Data/Hora</th>
+
+            <th>Status</th>
+
+            <th width="320"></th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+@foreach (var item in Model)
+{
+        <tr>
+
+            <td>@item.Cliente?.Nome</td>
+
+            <td>@item.Pet?.Nome</td>
+
+            <td>@item.Servico?.Nome</td>
+
+            <td>
+                @item.DataHora.ToString("dd/MM/yyyy HH:mm")
+            </td>
+
+            <td>
+
+                @switch (item.Status)
+                {
+                    case PetCare.Models.StatusAgendamento.Pendente:
+                        <span class="badge bg-warning text-dark">
+                            Pendente
+                        </span>
+                        break;
+
+                    case PetCare.Models.StatusAgendamento.Confirmado:
+                        <span class="badge bg-primary">
+                            Confirmado
+                        </span>
+                        break;
+
+                    case PetCare.Models.StatusAgendamento.EmAndamento:
+                        <span class="badge bg-info text-dark">
+                            Em Andamento
+                        </span>
+                        break;
+
+                    case PetCare.Models.StatusAgendamento.Finalizado:
+                        <span class="badge bg-success">
+                            Finalizado
+                        </span>
+                        break;
+
+                    case PetCare.Models.StatusAgendamento.Cancelado:
+                        <span class="badge bg-danger">
+                            Cancelado
+                        </span>
+                        break;
+                }
+
+            </td>
+
+            <td>
+
+                <a asp-action="Edit"
+                   asp-route-id="@item.Id"
+                   class="btn btn-sm btn-warning">
+
+                    Editar
+
+                </a>
+
+                <a asp-action="AlterarStatus"
+                   asp-route-id="@item.Id"
+                   class="btn btn-sm btn-outline-primary">
+
+                    Status
+
+                </a>
+
+                <a asp-action="Delete"
+                   asp-route-id="@item.Id"
+                   class="btn btn-sm btn-danger">
+
+                    Excluir
+
+                </a>
+
+            </td>
+
+        </tr>
+}
+
+    </tbody>
+
+</table>

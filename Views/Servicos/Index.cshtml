@@ -1,0 +1,47 @@
+@model IEnumerable<PetCare.Models.Servico>
+
+@{
+    ViewData["Title"] = "Serviços";
+}
+
+<h1>Serviços</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">
+        Novo Serviço
+    </a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Valor</th>
+            <th>Ativo</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model)
+{
+        <tr>
+            <td>@item.Nome</td>
+            <td>@item.Descricao</td>
+            <td>R$ @item.Valor</td>
+            <td>@(item.Ativo ? "Sim" : "Não")</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">
+                    Editar
+                </a> |
+                <a asp-action="Details" asp-route-id="@item.Id">
+                    Detalhes
+                </a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">
+                    Excluir
+                </a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

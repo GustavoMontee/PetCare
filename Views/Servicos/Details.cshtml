@@ -1,0 +1,32 @@
+@model PetCare.Models.Servico
+
+<h1>Detalhes do Serviço</h1>
+
+<hr />
+
+<dl class="row">
+    <dt class="col-sm-2">Nome</dt>
+    <dd class="col-sm-10">@Model.Nome</dd>
+
+    <dt class="col-sm-2">Descrição</dt>
+    <dd class="col-sm-10">@Model.Descricao</dd>
+
+    <dt class="col-sm-2">Valor</dt>
+    <dd class="col-sm-10">R$ @Model.Valor</dd>
+
+    <dt class="col-sm-2">Ativo</dt>
+    <dd class="col-sm-10">
+        @(Model.Ativo ? "Sim" : "Não")
+    </dd>
+</dl>
+
+<a asp-action="Edit"
+   asp-route-id="@Model.Id"
+   class="btn btn-primary">
+   Editar
+</a>
+
+<a asp-action="Index"
+   class="btn btn-secondary">
+   Voltar
+</a>
