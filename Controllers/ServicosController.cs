@@ -155,5 +155,23 @@ namespace PetCare.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+        public IActionResult Servicos()
+        {
+            var dados = _context.Agendamentos
+                .Include(a => a.Servico)
+                .ToList()
+                .GroupBy(a => a.Servico!.Nome)
+                .Select(g => new RelatorioServicoViewModel
+                {
+                    NomeServico = g.Key,
+                    Quantidade = g.Count()
+                })
+                .OrderByDescending(x => x.Quantidade)
+                .ToList();
+
+            return View(dados);
+        }
+
+
     }
 }
